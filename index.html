@@ -36,7 +36,6 @@
             font-size: 48px;
             font-weight: 100;
             letter-spacing: -1px;
-            text-transform: uppercase;
             margin-bottom: 8px;
         }
         
@@ -44,8 +43,6 @@
             font-size: 16px;
             font-weight: 300;
             color: #666666;
-            text-transform: uppercase;
-            letter-spacing: 1px;
         }
         
         .spreadsheet-container {
@@ -67,8 +64,6 @@
             text-align: left;
             padding: 20px 24px;
             font-size: 16px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
             border: none;
         }
         
@@ -78,8 +73,6 @@
             font-weight: 500;
             padding: 16px 24px;
             font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
             border: 1px solid #e0e0e0;
             border-bottom: 2px solid #000000;
         }
@@ -158,8 +151,6 @@
         .notes-section h3 {
             font-size: 18px;
             font-weight: 400;
-            text-transform: uppercase;
-            letter-spacing: 1px;
             margin-bottom: 20px;
             color: #000000;
         }
@@ -180,8 +171,6 @@
             padding: 16px 32px;
             font-size: 12px;
             font-weight: 400;
-            text-transform: uppercase;
-            letter-spacing: 1px;
             cursor: pointer;
             transition: all 0.2s ease;
             font-family: 'Helvetica Neue', Arial, sans-serif;
@@ -257,68 +246,14 @@
         
         <div class="spreadsheet-container">
             <table>
-                <!-- CLIENT PROFILE & CONTACT INFORMATION -->
+                <!-- CLIENT NAME -->
                 <tr>
-                    <td colspan="8" class="section-header">Client Profile & Contact Information</td>
-                </tr>
-                
-                <tr>
-                    <td colspan="2" class="category-header">Personal Information</td>
-                    <td colspan="2" class="category-header">Contact Details</td>
-                    <td colspan="2" class="category-header">Professional Background</td>
-                    <td colspan="2" class="category-header">Family Structure</td>
+                    <td colspan="8" class="section-header">Client Information</td>
                 </tr>
                 
                 <tr>
                     <td class="field-label priority-high">Client Full Legal Name</td>
-                    <td class="data-cell"><input type="text" placeholder="Enter full legal name"></td>
-                    <td class="field-label">Primary Address</td>
-                    <td class="data-cell"><textarea placeholder="Street, City, State, ZIP"></textarea></td>
-                    <td class="field-label">Current Employer</td>
-                    <td class="data-cell"><input type="text" placeholder="Company name"></td>
-                    <td class="field-label">Marital Status</td>
-                    <td class="data-cell">
-                        <select>
-                            <option>Select</option>
-                            <option>Single</option>
-                            <option>Married</option>
-                            <option>Divorced</option>
-                            <option>Widowed</option>
-                        </select>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="field-label">Spouse/Partner Name</td>
-                    <td class="data-cell"><input type="text" placeholder="Full legal name"></td>
-                    <td class="field-label">Secondary Address</td>
-                    <td class="data-cell"><textarea placeholder="Street, City, State, ZIP"></textarea></td>
-                    <td class="field-label">Position/Title</td>
-                    <td class="data-cell"><input type="text" placeholder="Job title"></td>
-                    <td class="field-label">Number of Children</td>
-                    <td class="data-cell"><input type="number" min="0"></td>
-                </tr>
-                
-                <tr>
-                    <td class="field-label priority-high">Date of Birth</td>
-                    <td class="data-cell"><input type="date" class="date-input"></td>
-                    <td class="field-label priority-high">Primary Phone</td>
-                    <td class="data-cell"><input type="tel" placeholder="(555) 123-4567"></td>
-                    <td class="field-label">Annual Income</td>
-                    <td class="data-cell"><input type="text" class="currency-input" placeholder="0"></td>
-                    <td class="field-label">Children's Ages</td>
-                    <td class="data-cell"><input type="text" placeholder="16, 18, 22"></td>
-                </tr>
-                
-                <tr>
-                    <td class="field-label priority-high">Social Security Number</td>
-                    <td class="data-cell"><input type="text" placeholder="XXX-XX-XXXX"></td>
-                    <td class="field-label priority-high">Primary Email</td>
-                    <td class="data-cell"><input type="email" placeholder="client@email.com"></td>
-                    <td class="field-label">Years at Current Position</td>
-                    <td class="data-cell"><input type="number" min="0" step="0.5"></td>
-                    <td class="field-label">Dependents</td>
-                    <td class="data-cell"><input type="text" placeholder="Names and relationships"></td>
+                    <td class="data-cell" colspan="7"><input type="text" placeholder="Enter full legal name"></td>
                 </tr>
 
                 <!-- ASSETS SUMMARY -->
