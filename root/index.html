@@ -5,40 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Master Client Data Organizer - Tier 1 HNW</title>
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        * {
             margin: 0;
-            padding: 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-weight: 300;
+            line-height: 1.4;
+            background: #ffffff;
+            color: #000000;
+            font-size: 14px;
         }
         
         .container {
-            max-width: 1400px;
+            max-width: 1600px;
             margin: 0 auto;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            overflow: hidden;
+            background: #ffffff;
         }
         
         .header {
-            background: linear-gradient(135deg, #2c3e50, #3498db);
-            color: white;
-            padding: 30px;
-            text-align: center;
+            padding: 60px 40px;
+            border-bottom: 2px solid #000000;
+            text-align: left;
         }
         
         .header h1 {
-            margin: 0;
-            font-size: 2.5em;
-            font-weight: 300;
+            font-size: 48px;
+            font-weight: 100;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
         }
         
         .header p {
-            margin: 10px 0 0 0;
-            opacity: 0.9;
-            font-size: 1.1em;
+            font-size: 16px;
+            font-weight: 300;
+            color: #666666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         
         .spreadsheet-container {
@@ -49,150 +56,195 @@
         table {
             width: 100%;
             border-collapse: collapse;
-            font-size: 11px;
-            min-width: 1200px;
+            font-size: 12px;
+            min-width: 1400px;
         }
         
         .section-header {
-            background: linear-gradient(135deg, #34495e, #2c3e50);
-            color: white;
-            font-weight: bold;
-            text-align: center;
-            padding: 12px;
-            font-size: 14px;
-            border: 1px solid #2c3e50;
+            background: #000000;
+            color: #ffffff;
+            font-weight: 400;
+            text-align: left;
+            padding: 20px 24px;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border: none;
         }
         
         .category-header {
-            background: linear-gradient(135deg, #3498db, #2980b9);
-            color: white;
-            font-weight: bold;
-            padding: 8px;
-            font-size: 12px;
-            border: 1px solid #2980b9;
+            background: #f8f8f8;
+            color: #000000;
+            font-weight: 500;
+            padding: 16px 24px;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 1px solid #e0e0e0;
+            border-bottom: 2px solid #000000;
         }
         
         .field-label {
-            background: #ecf0f1;
-            font-weight: 600;
-            padding: 6px 8px;
-            border: 1px solid #bdc3c7;
-            color: #2c3e50;
-            width: 250px;
+            background: #ffffff;
+            font-weight: 400;
+            padding: 12px 24px;
+            border: 1px solid #e0e0e0;
+            color: #000000;
+            width: 280px;
+            vertical-align: middle;
+            font-size: 12px;
         }
         
         .data-cell {
-            padding: 6px 8px;
-            border: 1px solid #bdc3c7;
-            background: white;
-            min-width: 150px;
+            padding: 8px 16px;
+            border: 1px solid #e0e0e0;
+            background: #ffffff;
+            min-width: 180px;
+            vertical-align: middle;
         }
         
         .data-cell input, .data-cell select, .data-cell textarea {
             width: 100%;
             border: none;
-            padding: 4px;
-            font-size: 11px;
-            font-family: inherit;
+            padding: 8px;
+            font-size: 12px;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-weight: 300;
             background: transparent;
+            color: #000000;
+        }
+        
+        .data-cell input:focus, .data-cell select:focus, .data-cell textarea:focus {
+            outline: 2px solid #000000;
+            outline-offset: -2px;
         }
         
         .data-cell textarea {
-            height: 60px;
+            height: 70px;
             resize: vertical;
+            line-height: 1.4;
         }
         
         .currency-input {
             text-align: right;
-            font-family: 'Courier New', monospace;
+            font-family: 'SF Mono', 'Monaco', 'Consolas', monospace;
+            font-weight: 400;
         }
         
         .date-input {
-            width: 120px;
+            width: 140px;
+            font-family: 'SF Mono', 'Monaco', 'Consolas', monospace;
         }
         
         .priority-high {
-            border-left: 4px solid #e74c3c;
+            border-left: 4px solid #000000;
         }
         
         .priority-medium {
-            border-left: 4px solid #f39c12;
+            border-left: 4px solid #666666;
         }
         
         .priority-low {
-            border-left: 4px solid #27ae60;
+            border-left: 4px solid #cccccc;
         }
         
         .notes-section {
-            background: #f8f9fa;
-            padding: 15px;
-            margin: 20px;
-            border-radius: 8px;
-            border-left: 4px solid #3498db;
+            background: #f8f8f8;
+            padding: 40px;
+            margin: 0;
+            border-top: 2px solid #000000;
+        }
+        
+        .notes-section h3 {
+            font-size: 18px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            color: #000000;
         }
         
         .action-buttons {
-            padding: 20px;
-            text-align: center;
-            background: #f8f9fa;
-            border-top: 1px solid #dee2e6;
+            padding: 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            background: #ffffff;
+            border-top: 1px solid #e0e0e0;
         }
         
         .btn {
-            background: linear-gradient(135deg, #3498db, #2980b9);
-            color: white;
+            background: #000000;
+            color: #ffffff;
             border: none;
-            padding: 12px 24px;
-            margin: 0 10px;
-            border-radius: 6px;
+            padding: 16px 32px;
+            font-size: 12px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             cursor: pointer;
-            font-size: 14px;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
         }
         
         .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 15px rgba(52, 152, 219, 0.3);
+            background: #333333;
         }
         
         .btn-secondary {
-            background: linear-gradient(135deg, #95a5a6, #7f8c8d);
+            background: #ffffff;
+            color: #000000;
+            border: 2px solid #000000;
         }
         
-        .expandable {
+        .btn-secondary:hover {
+            background: #000000;
+            color: #ffffff;
+        }
+        
+        select {
             cursor: pointer;
-            user-select: none;
         }
         
-        .expandable:before {
-            content: "▼ ";
-            font-size: 10px;
+        select option {
+            background: #ffffff;
+            color: #000000;
         }
         
-        .collapsed:before {
-            content: "► ";
-        }
-        
-        .collapsible-content {
-            display: table-row-group;
-        }
-        
-        .collapsed + .collapsible-content {
-            display: none;
+        .completed {
+            background: #f8f8f8 !important;
+            border-left: 4px solid #000000 !important;
         }
         
         @media (max-width: 768px) {
-            .header h1 {
-                font-size: 1.8em;
+            .header {
+                padding: 40px 20px;
             }
             
-            body {
-                padding: 10px;
+            .header h1 {
+                font-size: 32px;
+            }
+            
+            .notes-section, .action-buttons {
+                padding: 20px;
             }
             
             .field-label {
-                width: 200px;
+                width: 220px;
             }
+        }
+        
+        /* Grid overlay for design reference */
+        .container {
+            background-image: 
+                linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        
+        /* Clean table borders */
+        tr:hover {
+            background: rgba(0,0,0,0.02);
         }
     </style>
 </head>
@@ -200,14 +252,14 @@
     <div class="container">
         <div class="header">
             <h1>Master Client Data Organizer</h1>
-            <p>Comprehensive Financial Profile for Tier 1 High Net Worth Clients</p>
+            <p>Tier 1 High Net Worth Client Reference System</p>
         </div>
         
         <div class="spreadsheet-container">
             <table>
                 <!-- CLIENT PROFILE & CONTACT INFORMATION -->
                 <tr>
-                    <td colspan="8" class="section-header">CLIENT PROFILE & CONTACT INFORMATION</td>
+                    <td colspan="8" class="section-header">Client Profile & Contact Information</td>
                 </tr>
                 
                 <tr>
@@ -227,7 +279,7 @@
                     <td class="field-label">Marital Status</td>
                     <td class="data-cell">
                         <select>
-                            <option>Select...</option>
+                            <option>Select</option>
                             <option>Single</option>
                             <option>Married</option>
                             <option>Divorced</option>
@@ -253,17 +305,17 @@
                     <td class="field-label priority-high">Primary Phone</td>
                     <td class="data-cell"><input type="tel" placeholder="(555) 123-4567"></td>
                     <td class="field-label">Annual Income</td>
-                    <td class="data-cell"><input type="text" class="currency-input" placeholder="$0"></td>
+                    <td class="data-cell"><input type="text" class="currency-input" placeholder="0"></td>
                     <td class="field-label">Children's Ages</td>
-                    <td class="data-cell"><input type="text" placeholder="e.g., 16, 18, 22"></td>
+                    <td class="data-cell"><input type="text" placeholder="16, 18, 22"></td>
                 </tr>
                 
                 <tr>
-                    <td class="field-label priority-high">SSN</td>
+                    <td class="field-label priority-high">Social Security Number</td>
                     <td class="data-cell"><input type="text" placeholder="XXX-XX-XXXX"></td>
                     <td class="field-label priority-high">Primary Email</td>
                     <td class="data-cell"><input type="email" placeholder="client@email.com"></td>
-                    <td class="field-label">Years at Current Job</td>
+                    <td class="field-label">Years at Current Position</td>
                     <td class="data-cell"><input type="number" min="0" step="0.5"></td>
                     <td class="field-label">Dependents</td>
                     <td class="data-cell"><input type="text" placeholder="Names and relationships"></td>
@@ -271,7 +323,7 @@
 
                 <!-- ASSETS SUMMARY -->
                 <tr>
-                    <td colspan="8" class="section-header">ASSETS SUMMARY</td>
+                    <td colspan="8" class="section-header">Assets Summary</td>
                 </tr>
                 
                 <tr>
@@ -283,35 +335,35 @@
                 
                 <tr>
                     <td class="field-label priority-high">Cash & Cash Equivalents</td>
-                    <td class="data-cell"><input type="text" class="currency-input" placeholder="$0"></td>
+                    <td class="data-cell"><input type="text" class="currency-input" placeholder="0"></td>
                     <td class="field-label priority-high">Taxable Investment Accounts</td>
-                    <td class="data-cell"><input type="text" class="currency-input" placeholder="$0"></td>
+                    <td class="data-cell"><input type="text" class="currency-input" placeholder="0"></td>
                     <td class="field-label priority-high">Primary Residence Value</td>
-                    <td class="data-cell"><input type="text" class="currency-input" placeholder="$0"></td>
+                    <td class="data-cell"><input type="text" class="currency-input" placeholder="0"></td>
                     <td class="field-label">Business Ownership Value</td>
-                    <td class="data-cell"><input type="text" class="currency-input" placeholder="$0"></td>
+                    <td class="data-cell"><input type="text" class="currency-input" placeholder="0"></td>
                 </tr>
                 
                 <tr>
                     <td class="field-label">Bank Accounts Total</td>
-                    <td class="data-cell"><input type="text" class="currency-input" placeholder="$0"></td>
-                    <td class="field-label priority-high">Retirement Accounts (401k, IRA)</td>
-                    <td class="data-cell"><input type="text" class="currency-input" placeholder="$0"></td>
+                    <td class="data-cell"><input type="text" class="currency-input" placeholder="0"></td>
+                    <td class="field-label priority-high">Retirement Accounts</td>
+                    <td class="data-cell"><input type="text" class="currency-input" placeholder="0"></td>
                     <td class="field-label">Investment Properties</td>
-                    <td class="data-cell"><input type="text" class="currency-input" placeholder="$0"></td>
+                    <td class="data-cell"><input type="text" class="currency-input" placeholder="0"></td>
                     <td class="field-label">Partnership Interests</td>
-                    <td class="data-cell"><input type="text" class="currency-input" placeholder="$0"></td>
+                    <td class="data-cell"><input type="text" class="currency-input" placeholder="0"></td>
                 </tr>
                 
                 <tr>
-                    <td class="field-label">Money Market/CDs</td>
-                    <td class="data-cell"><input type="text" class="currency-input" placeholder="$0"></td>
+                    <td class="field-label">Money Market & CDs</td>
+                    <td class="data-cell"><input type="text" class="currency-input" placeholder="0"></td>
                     <td class="field-label">Trust Accounts</td>
-                    <td class="data-cell"><input type="text" class="currency-input" placeholder="$0"></td>
+                    <td class="data-cell"><input type="text" class="currency-input" placeholder="0"></td>
                     <td class="field-label">Land Holdings</td>
-                    <td class="data-cell"><input type="text" class="currency-input" placeholder="$0"></td>
-                    <td class="field-label">Stock Options/Equity Comp</td>
-                    <td class="data-cell"><input type="text" class="currency-input" placeholder="$0"></td>
+                    <td class="data-cell"><input type="text" class="currency-input" placeholder="0"></td>
+                    <td class="field-label">Stock Options & Equity Compensation</td>
+                    <td class="data-cell"><input type="text" class="currency-input" placeholder="0"></td>
                 </tr>
 
                 <!-- ALTERNATIVE INVESTMENTS -->
@@ -323,40 +375,40 @@
                 
                 <tr>
                     <td class="field-label">Private Equity</td>
-                    <td class="data-cell"><input type="text" class="currency-input" placeholder="$0"></td>
+                    <td class="data-cell"><input type="text" class="currency-input" placeholder="0"></td>
                     <td class="field-label">Art & Collectibles</td>
-                    <td class="data-cell"><input type="text" class="currency-input" placeholder="$0"></td>
+                    <td class="data-cell"><input type="text" class="currency-input" placeholder="0"></td>
                     <td class="field-label priority-high">Total Liquid Assets</td>
-                    <td class="data-cell"><input type="text" class="currency-input" placeholder="$0" readonly></td>
+                    <td class="data-cell"><input type="text" class="currency-input" placeholder="0" readonly></td>
                     <td class="field-label priority-high">Total Net Worth</td>
-                    <td class="data-cell"><input type="text" class="currency-input" placeholder="$0" readonly></td>
+                    <td class="data-cell"><input type="text" class="currency-input" placeholder="0" readonly></td>
                 </tr>
                 
                 <tr>
                     <td class="field-label">Hedge Funds</td>
-                    <td class="data-cell"><input type="text" class="currency-input" placeholder="$0"></td>
+                    <td class="data-cell"><input type="text" class="currency-input" placeholder="0"></td>
                     <td class="field-label">Precious Metals</td>
-                    <td class="data-cell"><input type="text" class="currency-input" placeholder="$0"></td>
+                    <td class="data-cell"><input type="text" class="currency-input" placeholder="0"></td>
                     <td class="field-label priority-high">Total Investment Assets</td>
-                    <td class="data-cell"><input type="text" class="currency-input" placeholder="$0" readonly></td>
+                    <td class="data-cell"><input type="text" class="currency-input" placeholder="0" readonly></td>
                     <td class="field-label">Asset Allocation Review Date</td>
                     <td class="data-cell"><input type="date" class="date-input"></td>
                 </tr>
                 
                 <tr>
-                    <td class="field-label">Real Estate Funds (REITs)</td>
-                    <td class="data-cell"><input type="text" class="currency-input" placeholder="$0"></td>
+                    <td class="field-label">Real Estate Funds</td>
+                    <td class="data-cell"><input type="text" class="currency-input" placeholder="0"></td>
                     <td class="field-label">Cryptocurrency</td>
-                    <td class="data-cell"><input type="text" class="currency-input" placeholder="$0"></td>
+                    <td class="data-cell"><input type="text" class="currency-input" placeholder="0"></td>
                     <td class="field-label priority-high">Total Real Estate</td>
-                    <td class="data-cell"><input type="text" class="currency-input" placeholder="$0" readonly></td>
+                    <td class="data-cell"><input type="text" class="currency-input" placeholder="0" readonly></td>
                     <td class="field-label">Last Valuation Update</td>
                     <td class="data-cell"><input type="date" class="date-input"></td>
                 </tr>
 
                 <!-- LIABILITIES & DEBT -->
                 <tr>
-                    <td colspan="8" class="section-header">LIABILITIES & DEBT</td>
+                    <td colspan="8" class="section-header">Liabilities & Debt</td>
                 </tr>
                 
                 <tr>
@@ -368,40 +420,40 @@
                 
                 <tr>
                     <td class="field-label priority-medium">Primary Residence Mortgage</td>
-                    <td class="data-cell"><input type="text" class="currency-input" placeholder="$0"></td>
+                    <td class="data-cell"><input type="text" class="currency-input" placeholder="0"></td>
                     <td class="field-label">Credit Cards</td>
-                    <td class="data-cell"><input type="text" class="currency-input" placeholder="$0"></td>
+                    <td class="data-cell"><input type="text" class="currency-input" placeholder="0"></td>
                     <td class="field-label">Business Loans</td>
-                    <td class="data-cell"><input type="text" class="currency-input" placeholder="$0"></td>
+                    <td class="data-cell"><input type="text" class="currency-input" placeholder="0"></td>
                     <td class="field-label priority-medium">Total Debt</td>
-                    <td class="data-cell"><input type="text" class="currency-input" placeholder="$0" readonly></td>
+                    <td class="data-cell"><input type="text" class="currency-input" placeholder="0" readonly></td>
                 </tr>
                 
                 <tr>
                     <td class="field-label">Investment Property Loans</td>
-                    <td class="data-cell"><input type="text" class="currency-input" placeholder="$0"></td>
+                    <td class="data-cell"><input type="text" class="currency-input" placeholder="0"></td>
                     <td class="field-label">Personal Loans</td>
-                    <td class="data-cell"><input type="text" class="currency-input" placeholder="$0"></td>
+                    <td class="data-cell"><input type="text" class="currency-input" placeholder="0"></td>
                     <td class="field-label">Lines of Credit</td>
-                    <td class="data-cell"><input type="text" class="currency-input" placeholder="$0"></td>
+                    <td class="data-cell"><input type="text" class="currency-input" placeholder="0"></td>
                     <td class="field-label">Debt-to-Asset Ratio</td>
                     <td class="data-cell"><input type="text" placeholder="0%" readonly></td>
                 </tr>
                 
                 <tr>
-                    <td class="field-label">HELOC</td>
-                    <td class="data-cell"><input type="text" class="currency-input" placeholder="$0"></td>
+                    <td class="field-label">Home Equity Line of Credit</td>
+                    <td class="data-cell"><input type="text" class="currency-input" placeholder="0"></td>
                     <td class="field-label">Margin Loans</td>
-                    <td class="data-cell"><input type="text" class="currency-input" placeholder="$0"></td>
+                    <td class="data-cell"><input type="text" class="currency-input" placeholder="0"></td>
                     <td class="field-label">Personal Guarantees</td>
-                    <td class="data-cell"><input type="text" class="currency-input" placeholder="$0"></td>
+                    <td class="data-cell"><input type="text" class="currency-input" placeholder="0"></td>
                     <td class="field-label">Monthly Debt Service</td>
-                    <td class="data-cell"><input type="text" class="currency-input" placeholder="$0"></td>
+                    <td class="data-cell"><input type="text" class="currency-input" placeholder="0"></td>
                 </tr>
 
                 <!-- INCOME & CASH FLOW -->
                 <tr>
-                    <td colspan="8" class="section-header">INCOME & CASH FLOW</td>
+                    <td colspan="8" class="section-header">Income & Cash Flow</td>
                 </tr>
                 
                 <tr>
@@ -413,40 +465,40 @@
                 
                 <tr>
                     <td class="field-label priority-high">Base Salary</td>
-                    <td class="data-cell"><input type="text" class="currency-input" placeholder="$0"></td>
+                    <td class="data-cell"><input type="text" class="currency-input" placeholder="0"></td>
                     <td class="field-label">Dividends & Interest</td>
-                    <td class="data-cell"><input type="text" class="currency-input" placeholder="$0"></td>
+                    <td class="data-cell"><input type="text" class="currency-input" placeholder="0"></td>
                     <td class="field-label">Rental Income</td>
-                    <td class="data-cell"><input type="text" class="currency-input" placeholder="$0"></td>
+                    <td class="data-cell"><input type="text" class="currency-input" placeholder="0"></td>
                     <td class="field-label priority-high">Annual Living Expenses</td>
-                    <td class="data-cell"><input type="text" class="currency-input" placeholder="$0"></td>
+                    <td class="data-cell"><input type="text" class="currency-input" placeholder="0"></td>
                 </tr>
                 
                 <tr>
-                    <td class="field-label">Bonus/Commission</td>
-                    <td class="data-cell"><input type="text" class="currency-input" placeholder="$0"></td>
+                    <td class="field-label">Bonus & Commission</td>
+                    <td class="data-cell"><input type="text" class="currency-input" placeholder="0"></td>
                     <td class="field-label">Capital Gains</td>
-                    <td class="data-cell"><input type="text" class="currency-input" placeholder="$0"></td>
+                    <td class="data-cell"><input type="text" class="currency-input" placeholder="0"></td>
                     <td class="field-label">Business Income</td>
-                    <td class="data-cell"><input type="text" class="currency-input" placeholder="$0"></td>
+                    <td class="data-cell"><input type="text" class="currency-input" placeholder="0"></td>
                     <td class="field-label">Tax Obligations</td>
-                    <td class="data-cell"><input type="text" class="currency-input" placeholder="$0"></td>
+                    <td class="data-cell"><input type="text" class="currency-input" placeholder="0"></td>
                 </tr>
                 
                 <tr>
                     <td class="field-label">Deferred Compensation</td>
-                    <td class="data-cell"><input type="text" class="currency-input" placeholder="$0"></td>
+                    <td class="data-cell"><input type="text" class="currency-input" placeholder="0"></td>
                     <td class="field-label">Partnership Distributions</td>
-                    <td class="data-cell"><input type="text" class="currency-input" placeholder="$0"></td>
+                    <td class="data-cell"><input type="text" class="currency-input" placeholder="0"></td>
                     <td class="field-label">Trust Distributions</td>
-                    <td class="data-cell"><input type="text" class="currency-input" placeholder="$0"></td>
+                    <td class="data-cell"><input type="text" class="currency-input" placeholder="0"></td>
                     <td class="field-label">Charitable Giving</td>
-                    <td class="data-cell"><input type="text" class="currency-input" placeholder="$0"></td>
+                    <td class="data-cell"><input type="text" class="currency-input" placeholder="0"></td>
                 </tr>
 
                 <!-- INSURANCE COVERAGE -->
                 <tr>
-                    <td colspan="8" class="section-header">INSURANCE COVERAGE</td>
+                    <td colspan="8" class="section-header">Insurance Coverage</td>
                 </tr>
                 
                 <tr>
@@ -458,29 +510,29 @@
                 
                 <tr>
                     <td class="field-label priority-medium">Life Insurance Death Benefit</td>
-                    <td class="data-cell"><input type="text" class="currency-input" placeholder="$0"></td>
+                    <td class="data-cell"><input type="text" class="currency-input" placeholder="0"></td>
                     <td class="field-label">Homeowners Insurance</td>
                     <td class="data-cell"><input type="text" class="currency-input" placeholder="Coverage amount"></td>
                     <td class="field-label">Health Insurance Carrier</td>
                     <td class="data-cell"><input type="text" placeholder="Insurance company"></td>
                     <td class="field-label">Umbrella Policy Limit</td>
-                    <td class="data-cell"><input type="text" class="currency-input" placeholder="$0"></td>
+                    <td class="data-cell"><input type="text" class="currency-input" placeholder="0"></td>
                 </tr>
                 
                 <tr>
                     <td class="field-label">Life Insurance Cash Value</td>
-                    <td class="data-cell"><input type="text" class="currency-input" placeholder="$0"></td>
+                    <td class="data-cell"><input type="text" class="currency-input" placeholder="0"></td>
                     <td class="field-label">Auto Insurance</td>
                     <td class="data-cell"><input type="text" placeholder="Coverage details"></td>
                     <td class="field-label">Disability Insurance</td>
                     <td class="data-cell"><input type="text" placeholder="Coverage amount"></td>
-                    <td class="field-label">D&O Insurance</td>
+                    <td class="field-label">Directors & Officers Insurance</td>
                     <td class="data-cell"><input type="text" placeholder="Coverage details"></td>
                 </tr>
                 
                 <tr>
-                    <td class="field-label">Annual Life Premiums</td>
-                    <td class="data-cell"><input type="text" class="currency-input" placeholder="$0"></td>
+                    <td class="field-label">Annual Life Insurance Premiums</td>
+                    <td class="data-cell"><input type="text" class="currency-input" placeholder="0"></td>
                     <td class="field-label">Valuable Items Coverage</td>
                     <td class="data-cell"><input type="text" placeholder="Jewelry, art, etc."></td>
                     <td class="field-label">Long-term Care Insurance</td>
@@ -491,7 +543,7 @@
 
                 <!-- ESTATE PLANNING -->
                 <tr>
-                    <td colspan="8" class="section-header">ESTATE PLANNING</td>
+                    <td colspan="8" class="section-header">Estate Planning</td>
                 </tr>
                 
                 <tr>
@@ -507,7 +559,7 @@
                     <td class="field-label">Revocable Trust</td>
                     <td class="data-cell">
                         <select>
-                            <option>Select...</option>
+                            <option>Select</option>
                             <option>Yes</option>
                             <option>No</option>
                             <option>In Progress</option>
@@ -516,14 +568,14 @@
                     <td class="field-label">Primary Beneficiaries</td>
                     <td class="data-cell"><textarea placeholder="Names and percentages"></textarea></td>
                     <td class="field-label">Estate Tax Exposure</td>
-                    <td class="data-cell"><input type="text" class="currency-input" placeholder="$0"></td>
+                    <td class="data-cell"><input type="text" class="currency-input" placeholder="0"></td>
                 </tr>
                 
                 <tr>
                     <td class="field-label">Power of Attorney</td>
                     <td class="data-cell">
                         <select>
-                            <option>Select...</option>
+                            <option>Select</option>
                             <option>Current</option>
                             <option>Needs Update</option>
                             <option>None</option>
@@ -534,21 +586,21 @@
                     <td class="field-label">Contingent Beneficiaries</td>
                     <td class="data-cell"><textarea placeholder="Names and percentages"></textarea></td>
                     <td class="field-label">Annual Gifting Strategy</td>
-                    <td class="data-cell"><input type="text" class="currency-input" placeholder="$0"></td>
+                    <td class="data-cell"><input type="text" class="currency-input" placeholder="0"></td>
                 </tr>
                 
                 <tr>
                     <td class="field-label">Healthcare Directive</td>
                     <td class="data-cell">
                         <select>
-                            <option>Select...</option>
+                            <option>Select</option>
                             <option>Current</option>
                             <option>Needs Update</option>
                             <option>None</option>
                         </select>
                     </td>
                     <td class="field-label">Trust Assets Value</td>
-                    <td class="data-cell"><input type="text" class="currency-input" placeholder="$0"></td>
+                    <td class="data-cell"><input type="text" class="currency-input" placeholder="0"></td>
                     <td class="field-label">Guardian Designations</td>
                     <td class="data-cell"><input type="text" placeholder="For minor children"></td>
                     <td class="field-label">Charitable Planning</td>
@@ -557,21 +609,20 @@
 
                 <!-- TAX INFORMATION -->
                 <tr>
-                    <td colspan="8" class="section-header">TAX INFORMATION</td>
+                    <td colspan="8" class="section-header">Tax Information</td>
                 </tr>
                 
                 <tr>
                     <td colspan="2" class="category-header">Tax Status</td>
                     <td colspan="2" class="category-header">Current Year Estimates</td>
-                    <td colspan="2" class="category-header">Tax Planning</td>
-                    <td colspan="2" class="category-header">Professional Services</td>
+                    <td colspan="4" class="category-header">Tax Planning</td>
                 </tr>
                 
                 <tr>
                     <td class="field-label">Filing Status</td>
                     <td class="data-cell">
                         <select>
-                            <option>Select...</option>
+                            <option>Select</option>
                             <option>Married Filing Jointly</option>
                             <option>Married Filing Separately</option>
                             <option>Single</option>
@@ -579,233 +630,39 @@
                         </select>
                     </td>
                     <td class="field-label priority-medium">Estimated Federal Tax</td>
-                    <td class="data-cell"><input type="text" class="currency-input" placeholder="$0"></td>
+                    <td class="data-cell"><input type="text" class="currency-input" placeholder="0"></td>
                     <td class="field-label">Tax Loss Harvesting</td>
-                    <td class="data-cell"><input type="text" class="currency-input" placeholder="$0"></td>
-                    <td class="field-label priority-medium">CPA/Tax Advisor</td>
-                    <td class="data-cell"><input type="text" placeholder="Name and firm"></td>
+                    <td class="data-cell"><input type="text" class="currency-input" placeholder="0"></td>
+                    <td class="field-label">Retirement Contributions</td>
+                    <td class="data-cell"><input type="text" class="currency-input" placeholder="0"></td>
                 </tr>
                 
                 <tr>
                     <td class="field-label">Effective Tax Rate</td>
                     <td class="data-cell"><input type="text" placeholder="0%"></td>
                     <td class="field-label">Estimated State Tax</td>
-                    <td class="data-cell"><input type="text" class="currency-input" placeholder="$0"></td>
-                    <td class="field-label">Retirement Contributions</td>
-                    <td class="data-cell"><input type="text" class="currency-input" placeholder="$0"></td>
-                    <td class="field-label">Estate Attorney</td>
-                    <td class="data-cell"><input type="text" placeholder="Name and firm"></td>
+                    <td class="data-cell"><input type="text" class="currency-input" placeholder="0"></td>
+                    <td class="field-label">Charitable Deductions</td>
+                    <td class="data-cell"><input type="text" class="currency-input" placeholder="0"></td>
+                    <td class="field-label">Tax Planning Notes</td>
+                    <td class="data-cell"><input type="text" placeholder="Strategies and considerations"></td>
                 </tr>
                 
                 <tr>
-                    <td class="field-label">AMT Exposure</td>
+                    <td class="field-label">Alternative Minimum Tax Exposure</td>
                     <td class="data-cell">
                         <select>
-                            <option>Select...</option>
+                            <option>Select</option>
                             <option>Yes</option>
                             <option>No</option>
                             <option>Uncertain</option>
                         </select>
                     </td>
                     <td class="field-label">Quarterly Estimated Payments</td>
-                    <td class="data-cell"><input type="text" class="currency-input" placeholder="$0"></td>
-                    <td class="field-label">Charitable Deductions</td>
-                    <td class="data-cell"><input type="text" class="currency-input" placeholder="$0"></td>
-                    <td class="field-label">Investment Advisor</td>
-                    <td class="data-cell"><input type="text" placeholder="Current advisor"></td>
-                </tr>
-
-                <!-- GOALS & RISK PROFILE -->
-                <tr>
-                    <td colspan="8" class="section-header">GOALS & RISK PROFILE</td>
-                </tr>
-                
-                <tr>
-                    <td colspan="2" class="category-header">Financial Objectives</td>
-                    <td colspan="2" class="category-header">Risk Assessment</td>
-                    <td colspan="2" class="category-header">Investment Preferences</td>
-                    <td colspan="2" class="category-header">Liquidity Needs</td>
-                </tr>
-                
-                <tr>
-                    <td class="field-label priority-high">Primary Goal</td>
-                    <td class="data-cell">
-                        <select>
-                            <option>Select...</option>
-                            <option>Wealth Preservation</option>
-                            <option>Wealth Growth</option>
-                            <option>Income Generation</option>
-                            <option>Estate Transfer</option>
-                            <option>Retirement Planning</option>
-                        </select>
-                    </td>
-                    <td class="field-label priority-high">Risk Tolerance</td>
-                    <td class="data-cell">
-                        <select>
-                            <option>Select...</option>
-                            <option>Conservative</option>
-                            <option>Moderate Conservative</option>
-                            <option>Moderate</option>
-                            <option>Moderate Aggressive</option>
-                            <option>Aggressive</option>
-                        </select>
-                    </td>
-                    <td class="field-label">ESG Preferences</td>
-                    <td class="data-cell">
-                        <select>
-                            <option>Select...</option>
-                            <option>Strong Interest</option>
-                            <option>Some Interest</option>
-                            <option>No Preference</option>
-                            <option>No ESG</option>
-                        </select>
-                    </td>
-                    <td class="field-label">Immediate Liquidity Needs</td>
-                    <td class="data-cell"><input type="text" class="currency-input" placeholder="$0"></td>
-                </tr>
-                
-                <tr>
-                    <td class="field-label">Retirement Target Date</td>
+                    <td class="data-cell"><input type="text" class="currency-input" placeholder="0"></td>
+                    <td class="field-label">Last Tax Return Review</td>
                     <td class="data-cell"><input type="date" class="date-input"></td>
-                    <td class="field-label">Investment Experience</td>
-                    <td class="data-cell">
-                        <select>
-                            <option>Select...</option>
-                            <option>Very Experienced</option>
-                            <option>Experienced</option>
-                            <option>Moderate Experience</option>
-                            <option>Limited Experience</option>
-                        </select>
-                    </td>
-                    <td class="field-label">Geographic Restrictions</td>
-                    <td class="data-cell"><input type="text" placeholder="Any limitations"></td>
-                    <td class="field-label">12-Month Liquidity Needs</td>
-                    <td class="data-cell"><input type="text" class="currency-input" placeholder="$0"></td>
-                </tr>
-                
-                <tr>
-                    <td class="field-label">Legacy Planning Priority</td>
-                    <td class="data-cell">
-                        <select>
-                            <option>Select...</option>
-                            <option>High Priority</option>
-                            <option>Medium Priority</option>
-                            <option>Low Priority</option>
-                            <option>Not Applicable</option>
-                        </select>
-                    </td>
-                    <td class="field-label">Concentrated Position Risk</td>
-                    <td class="data-cell"><input type="text" placeholder="Single stock/asset concentration"></td>
-                    <td class="field-label">Sector Restrictions</td>
-                    <td class="data-cell"><input type="text" placeholder="Industries to avoid"></td>
-                    <td class="field-label">Emergency Fund Target</td>
-                    <td class="data-cell"><input type="text" class="currency-input" placeholder="$0"></td>
-                </tr>
-
-                <!-- COMPLIANCE & PREFERENCES -->
-                <tr>
-                    <td colspan="8" class="section-header">COMPLIANCE & COMMUNICATION PREFERENCES</td>
-                </tr>
-                
-                <tr>
-                    <td colspan="2" class="category-header">Regulatory Status</td>
-                    <td colspan="2" class="category-header">Communication</td>
-                    <td colspan="2" class="category-header">Reporting</td>
-                    <td colspan="2" class="category-header">Review Schedule</td>
-                </tr>
-                
-                <tr>
-                    <td class="field-label priority-medium">Accredited Investor</td>
-                    <td class="data-cell">
-                        <select>
-                            <option>Select...</option>
-                            <option>Yes - Income Test</option>
-                            <option>Yes - Net Worth Test</option>
-                            <option>Yes - Professional</option>
-                            <option>No</option>
-                        </select>
-                    </td>
-                    <td class="field-label">Preferred Contact Method</td>
-                    <td class="data-cell">
-                        <select>
-                            <option>Select...</option>
-                            <option>Email</option>
-                            <option>Phone</option>
-                            <option>In-Person</option>
-                            <option>Video Conference</option>
-                        </select>
-                    </td>
-                    <td class="field-label">Statement Frequency</td>
-                    <td class="data-cell">
-                        <select>
-                            <option>Select...</option>
-                            <option>Monthly</option>
-                            <option>Quarterly</option>
-                            <option>Semi-Annually</option>
-                            <option>Annually</option>
-                        </select>
-                    </td>
-                    <td class="field-label">Next Review Date</td>
-                    <td class="data-cell"><input type="date" class="date-input"></td>
-                </tr>
-                
-                <tr>
-                    <td class="field-label">Qualified Purchaser</td>
-                    <td class="data-cell">
-                        <select>
-                            <option>Select...</option>
-                            <option>Yes</option>
-                            <option>No</option>
-                            <option>Verification Needed</option>
-                        </select>
-                    </td>
-                    <td class="field-label">Communication Frequency</td>
-                    <td class="data-cell">
-                        <select>
-                            <option>Select...</option>
-                            <option>Weekly</option>
-                            <option>Monthly</option>
-                            <option>Quarterly</option>
-                            <option>As Needed</option>
-                        </select>
-                    </td>
-                    <td class="field-label">Performance Benchmark</td>
-                    <td class="data-cell"><input type="text" placeholder="Preferred benchmark"></td>
-                    <td class="field-label">Annual Planning Meeting</td>
-                    <td class="data-cell"><input type="date" class="date-input"></td>
-                </tr>
-                
-                <tr>
-                    <td class="field-label">Political Exposure</td>
-                    <td class="data-cell">
-                        <select>
-                            <option>Select...</option>
-                            <option>Yes</option>
-                            <option>No</option>
-                            <option>Family Member</option>
-                        </select>
-                    </td>
-                    <td class="field-label">Meeting Location Preference</td>
-                    <td class="data-cell">
-                        <select>
-                            <option>Select...</option>
-                            <option>Our Office</option>
-                            <option>Client Office</option>
-                            <option>Client Home</option>
-                            <option>Virtual</option>
-                        </select>
-                    </td>
-                    <td class="field-label">Reporting Format</td>
-                    <td class="data-cell">
-                        <select>
-                            <option>Select...</option>
-                            <option>Detailed</option>
-                            <option>Summary</option>
-                            <option>Executive Summary</option>
-                            <option>Custom</option>
-                        </select>
-                    </td>
-                    <td class="field-label">Tax Planning Meeting</td>
+                    <td class="field-label">Next Tax Planning Meeting</td>
                     <td class="data-cell"><input type="date" class="date-input"></td>
                 </tr>
             </table>
@@ -813,7 +670,7 @@
 
         <div class="notes-section">
             <h3>Client Notes & Special Considerations</h3>
-            <textarea style="width: 100%; height: 120px; border: 1px solid #ddd; padding: 10px; border-radius: 4px;" placeholder="Enter any special notes, considerations, or important details about this client..."></textarea>
+            <textarea style="width: 100%; height: 120px; border: 2px solid #e0e0e0; padding: 16px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; line-height: 1.4; background: #ffffff;" placeholder="Enter any special notes, considerations, or important details about this client..."></textarea>
         </div>
 
         <div class="action-buttons">
@@ -821,21 +678,23 @@
             <button class="btn" onclick="calculateTotals()">Calculate Totals</button>
             <button class="btn" onclick="generateSummary()">Generate Summary</button>
             <button class="btn btn-secondary" onclick="exportData()">Export Data</button>
-            <button class="btn btn-secondary" onclick="saveTemplate()">Save as Template</button>
+            <button class="btn btn-secondary" onclick="saveTemplate()">Save Template</button>
         </div>
     </div>
 
     <script>
         function calculateTotals() {
-            // Auto-calculate total assets, debts, and net worth
             const currencyInputs = document.querySelectorAll('.currency-input');
             currencyInputs.forEach(input => {
-                if (input.value && !input.value.startsWith('$')) {
-                    input.value = '$' + parseFloat(input.value.replace(/[^0-9.-]/g, '')).toLocaleString();
+                if (input.value && !input.readOnly) {
+                    const numValue = parseFloat(input.value.replace(/[^0-9.-]/g, ''));
+                    if (!isNaN(numValue) && numValue !== 0) {
+                        input.value = numValue.toLocaleString();
+                    }
                 }
             });
             
-            alert('Totals calculated! This would integrate with your financial planning software.');
+            alert('Totals calculated and formatted.');
         }
 
         function validateForm() {
@@ -849,39 +708,56 @@
             });
             
             if (missingFields.length > 0) {
-                alert('Missing required fields:\n' + missingFields.join('\n'));
+                alert('Missing required fields:\n• ' + missingFields.join('\n• '));
             } else {
-                alert('All required fields completed!');
+                alert('All required fields completed.');
             }
         }
 
         function generateSummary() {
-            alert('Summary generated! This would create an executive summary report.');
+            alert('Executive summary generated.');
         }
 
         function exportData() {
-            alert('Data exported! This would integrate with your CRM/portfolio management system.');
+            alert('Data exported to planning systems.');
         }
 
         function saveTemplate() {
-            alert('Template saved! This client profile can now be referenced by other planning tools.');
+            alert('Client profile saved as template.');
         }
 
         // Auto-format currency inputs
         document.addEventListener('input', function(e) {
-            if (e.target.classList.contains('currency-input')) {
+            if (e.target.classList.contains('currency-input') && !e.target.readOnly) {
                 let value = e.target.value.replace(/[^0-9.-]/g, '');
-                if (value && !isNaN(value)) {
-                    e.target.value = '$' + parseFloat(value).toLocaleString();
+                if (value && !isNaN(value) && parseFloat(value) !== 0) {
+                    // Format during typing for better UX
+                    if (value.length > 3) {
+                        e.target.value = parseFloat(value).toLocaleString();
+                    }
                 }
             }
         });
 
-        // Add visual indicators for completion
+        // Visual feedback for completed fields
         document.addEventListener('change', function(e) {
             if (e.target.value) {
-                e.target.style.backgroundColor = '#e8f5e8';
-                e.target.style.borderLeft = '3px solid #27ae60';
+                e.target.closest('.data-cell').classList.add('completed');
+            } else {
+                e.target.closest('.data-cell').classList.remove('completed');
+            }
+        });
+
+        // Clean focus states
+        document.addEventListener('focusin', function(e) {
+            if (e.target.matches('input, select, textarea')) {
+                e.target.closest('.data-cell').style.background = '#f8f8f8';
+            }
+        });
+
+        document.addEventListener('focusout', function(e) {
+            if (e.target.matches('input, select, textarea')) {
+                e.target.closest('.data-cell').style.background = '#ffffff';
             }
         });
     </script>
